@@ -11,6 +11,7 @@ import { createConfig, WagmiProvider } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { injected } from "wagmi/connectors";
 import App from "./App.tsx";
+import { defiOracleMetaMainnet } from "./chains.ts";
 import "./index.css";
 
 class EIP1193Provider extends IFrameEthereumProviderClass {
@@ -52,7 +53,7 @@ const provider = new EIP1193Provider();
 const transport = custom(provider);
 
 const config = createConfig({
-  chains: [mainnet],
+  chains: [mainnet, defiOracleMetaMainnet],
   connectors: [
     injected({
       target() {
@@ -66,6 +67,7 @@ const config = createConfig({
   ],
   transports: {
     [mainnet.id]: transport,
+    [defiOracleMetaMainnet.id]: transport,
   },
 });
 

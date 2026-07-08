@@ -72,6 +72,11 @@ const config = createConfig({
   ],
   transports: {
     [mainnet.id]: transport,
+    [defiOracleMetaMainnet.id]: transport,
   },
 });
 ```
+
+## DeFi Oracle Meta Mainnet (Chain ID 138)
+
+`src/chains.ts` defines **DeFi Oracle Meta Mainnet** (chain ID 138). It is registered in the wagmi `chains` array alongside `mainnet` so dApps can target Chain 138 metadata when using the Ledger iframe provider.
